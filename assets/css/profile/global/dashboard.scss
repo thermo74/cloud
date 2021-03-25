@@ -1,0 +1,21 @@
+.dashboard {
+  .container{
+    header{
+      .icon{
+        margin-right: 1vw;
+      }
+    }
+    .content{
+      padding: 1rem 5rem;
+      content-visibility: auto;
+      contain-intrinsic-size: 1000px;
+    }
+  }
+  @media screen and (max-width: 520px){
+    .container{
+      .content{
+        padding: 1rem 8vw;
+      }
+    }
+  }
+}

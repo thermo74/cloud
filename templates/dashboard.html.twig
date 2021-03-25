@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="{{ app.request.locale }}">
+<head>
+    <title>{% block title %}{% block subtitle %}{% endblock %} — {{ 'Member area'|trans }}{% endblock %}</title>
+    <meta charset="UTF-8">
+    <meta name="description" content="{% block metaDescription %}{% endblock %}">
+    <meta name="dc.title" content="{{ block('title') }}"/>
+    <meta name="dc.relation" content="{{ app.request.baseUrl }}"/>
+    <meta name="dc.source" content="{{ app.request.baseUrl }}"/>
+    <meta name="dc.language" content="{{ app.request.locale }}"/>
+    <meta name="robots" content="noarchive, max-snippet:-1, max-image-preview:large, max-video-preview:-1"/>
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@we_studio"/>
+    <meta name="twitter:creator" content="@we_studio"/>
+    <meta name="twitter:title" content="{{ block('title') }}"/>
+    <meta name="twitter:description" content="{{ block('metaDescription') }}"/>
+    <meta name="twitter:image:src" content="{{ app.request.baseUrl }}{{ asset('images/logo/logo.svg') }}"/>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#fff">
+    <meta name="apple-mobile-web-app-title" content="we studio">
+    <meta name="msapplication-TileImage" content="{{ app.request.baseUrl }}{{ asset('images/logo/logo.svg') }}"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#FFFFFF">
+    <meta property="og:url" content="{{ app.request.baseUrl }}"/>
+    <meta property="og:site_name" content="{{ 'Member area'|trans }}"/>
+    <meta property="og:locale" content="fr_FR"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:title" content="{{ block('title') }}"/>
+    <meta property="og:image" content="{{ app.request.baseUrl }}{{ asset('images/logo/logo.svg') }}"/>
+    <meta property="og:image:secure_url" content="{{ app.request.baseUrl }}{{ asset('images/logo/logo.svg') }}"/>
+    <meta property="og:image:width" content="2560"/>
+    <meta property="og:image:height" content="1374"/>
+    <meta property="fb:app_id" content="451928605610505"/>
+    <link rel="manifest" href="{{ app.request.baseUrl }}/build/manifest.json">
+    <link rel="apple-touch-icon" href="{{ app.request.baseUrl }}{{ asset('images/logo/logo.svg') }}">
+    <link rel="icon" href="{{ app.request.baseUrl }}{{ asset('images/logo/logo.svg') }}" sizes="32x32"/>
+    <link rel="icon" href="{{ app.request.baseUrl }}{{ asset('images/logo/logo.svg') }}" sizes="192x192"/>
+    <link rel="apple-touch-icon" href="{{ app.request.baseUrl }}{{ asset('images/logo/logo.svg') }}"/>
+
+{#    <link rel="stylesheet" href="{{ app.request.baseUrl }}/build/app.b43e86e5.css">#}
+{#    <script src="{{ app.request.baseUrl }}/build/runtime.420770e4.js"></script>#}
+{#    <script src="{{ app.request.baseUrl }}/build/app.01e4e68a.js" async></script>#}
+    {% block stylesheets %}
+        {{ encore_entry_link_tags('app') }}
+        {% block css %}{% endblock %}
+    {% endblock %}
+    {% block javascripts %}
+        {{ encore_entry_script_tags('app') | replace({'<script': '<script async'}) | raw }}
+    {% endblock %}
+    {% block AdminCss %}
+    {% endblock %}
+</head>
+<body class="no-js {% if is_granted('ROLE_MODERATOR') or is_granted('ROLE_ADMIN') %}admin{% endif %}">
+{% block body %}
+    {% include 'block/alert.html.twig' %}
+    <div class="dashboard">
+        {{ include('sidebar.html.twig') }}
+        <div class="container">
+            {{ include('header.html.twig') }}
+            <div class="content">
+                {% block content %}
+                {% endblock %}
+            </div>
+        </div>
+    </div>
+{% endblock %}
+</body>
+</html>
+
+
+

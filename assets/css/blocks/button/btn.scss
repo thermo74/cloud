@@ -1,0 +1,18 @@
+.btn-primary{
+  background-color: var(--primary);
+  color: var(--light);
+  &.active, &:hover{
+    background-color: var(--primary);
+    color: var(--light);
+  }
+}
+.btn-danger{
+  background-color: var(--danger);
+  color: var(--light);
+}
+
+.btn-none{
+  background-color: transparent;
+  color: inherit;
+  border: none;
+}

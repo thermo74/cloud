@@ -1,0 +1,9 @@
+{% extends 'dashboard.html.twig' %}
+
+{% block title %}Error {{ status_text|trans }}, {{ status_code }}{% endblock %}
+
+{% block content %}
+    <h1>Oups une erreur {{ status_code }} ({{ status_text|trans }}) c'est produite.</h1>
+    <h2>Retour sur la page <a href="{{ path('homepage') }}" title="{{ 'Home'|trans }}">d'accueil</a></h2>
+    <button onclick="history.back()" class="btn btn-primary" title="Retour">&#8626;</button>
+{% endblock %}

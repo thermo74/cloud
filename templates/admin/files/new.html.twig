@@ -1,0 +1,10 @@
+{% extends 'dashboard.html.twig' %}
+
+{% block subtitle %}{{ 'Upload a file'|trans }}{% endblock %}
+
+{% block content %}
+    <h1>{{ 'Upload a file'|trans }}</h1>
+
+    {{ include('admin/files/_form.html.twig') }}
+
+{% endblock %}

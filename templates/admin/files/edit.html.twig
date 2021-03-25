@@ -1,0 +1,10 @@
+{% extends 'dashboard.html.twig' %}
+
+{% block subtitle %}{{ 'Edit a file'|trans }}{% endblock %}
+
+{% block content %}
+    <h1>{{ 'Edit a file'|trans }}</h1>
+
+    {{ include('admin/files/_form.html.twig', {'button_label': 'Update'}) }}
+
+{% endblock %}

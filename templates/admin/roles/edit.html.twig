@@ -1,0 +1,8 @@
+{% extends 'dashboard.html.twig' %}
+
+{% block subtitle %}{{ 'Edit a role'|trans }}{% endblock %}
+
+{% block content %}
+    <h1>{{ 'Edit a role'|trans }}</h1>
+    {{ include('admin/roles/_form.html.twig', {'button_label': 'Update'}) }}
+{% endblock %}

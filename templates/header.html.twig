@@ -1,0 +1,45 @@
+{% block header %}
+    <header>
+            <div class="sidebar-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        {% if not is_granted('ROLE_MODERATOR') and not is_granted('ROLE_ADMIN') %}
+            <div class="logo">
+                <a href="{{ path('homepage') }}" title="Acceuil">
+                    <img class="img-fluid" src="{{ asset('images/logo/logo.svg') }}" alt="logo">
+                </a>
+            </div>
+        <div class="menu">
+            <ul>
+                {% if app.user %}
+                    <li>
+                        <a href="{{ path('profile') }}" title="{{ 'Files'|trans }}">{{ 'Files'|trans }}</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('app_logout') }}" title="{% trans %}Logout{% endtrans %}">{% trans %}Logout{% endtrans %}</a>
+                    </li>
+                    <li class="languages">
+                        <p class="current">{{ app.request.locale }} {{ icon('chevron-down') }}</p>
+                        <ul>
+                            <li class="language"><a href="{{ path('homepage', { _locale: 'en' }) }}"><p>En</p></a></li>
+                            <li class="language"><a href="{{ path('homepage', { _locale: 'fr' }) }}"><p>Fr</p></a></li>
+                        </ul>
+                    </li>
+                {% else %}
+                    <li>
+                        <a href="{{ path('app_register') }}" title="{% trans %}Register{% endtrans %}">{% trans %}Register{% endtrans %}</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('app_login') }}" title="{% trans %}Login{% endtrans %}">{% trans %}Login{% endtrans %}</a>
+                    </li>
+                {% endif %}
+                {% block header_menu %}{% endblock %}
+
+
+            </ul>
+        </div>
+        {% endif %}
+    </header>
+{% endblock %}

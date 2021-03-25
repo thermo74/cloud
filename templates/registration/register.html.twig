@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block subtitle %}{{ 'Register'|trans }}{% endblock %}
+
+{% block body %}
+    {% for flashError in app.flashes('verify_email_error') %}
+        <div class="alert alert-danger" role="alert">{{ flashError }}</div>
+    {% endfor %}
+
+<div class="wecontainer">
+    <h1>Inscription</h1>
+    <div class="formContainer">
+        <div class="formLogo">
+            <img src="{{ asset('images/logo/logo.svg') }}" alt="">
+        </div>
+        {{ form_start(registrationForm) }}
+            {{ form_help(registrationForm) }}
+            {{ form_errors(registrationForm) }}
+            <div class="formName">
+                {{ form_label(registrationForm.name) }}
+                {{ form_errors(registrationForm.name) }}
+                {{ form_widget(registrationForm.name, {'attr' : {'class':'form-control'}}) }}
+            </div>
+            <div class="formLastname">
+                {{ form_label(registrationForm.lastname) }}
+                {{ form_errors(registrationForm.lastname) }}
+                {{ form_widget(registrationForm.lastname, {'attr' : {'class':'form-control'}}) }}
+            </div>
+            <div class="formEmail">
+                {{ form_label(registrationForm.email) }}
+                {{ form_errors(registrationForm.email) }}
+                {{ form_widget(registrationForm.email, {'attr' : {'class':'form-control'}}) }}
+            </div>
+            <div class="formPhone">
+                {{ form_label(registrationForm.phone) }}
+                {{ form_errors(registrationForm.phone) }}
+                {{ form_widget(registrationForm.phone, {'attr' : {'class':'form-control'}}) }}
+            </div>
+            <div class="formPlainPassword">
+                {{ form_widget(registrationForm.plainPassword, {'attr' : {'required':'required'}}) }}
+            </div>
+            <div class="formCheckbox">
+                {{ form_errors(registrationForm.agreeTerms) }}
+                {{ form_widget(registrationForm.agreeTerms) }}
+                {{ form_label(registrationForm.agreeTerms) }}
+            </div>
+            <button type="submit" class="btn">S'inscrire</button>
+        {{ form_end(registrationForm) }}
+    </div>
+</div>
+{% endblock %}

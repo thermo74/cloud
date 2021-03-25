@@ -1,0 +1,5 @@
+You must accept the terms of use.: You must accept the terms of use.
+Passwords must be the same: Passwords must be the same
+Please enter a password: Please enter a password
+Your password must contain at least {{ limit }}: Your password must contain at least {{ limit }}
+The minimum password size is {{ limit }} characters: The minimum password size is {{ limit }} characters

@@ -1,0 +1,5 @@
+You must accept the terms of use.: Vous devez accepter les conditions d'utilisation.
+Passwords must be the same: Les mots de passe doivent être identique
+Please enter a password: Veuillez entrer un mot de passe
+The minimum password size is {{ limit }} characters: La taille minimal du mot de passe est de {{ limit }} caractères
+Your password must contain at least {{ limit }}: Votre mot de passe doit contenir au moins {{ limit }}

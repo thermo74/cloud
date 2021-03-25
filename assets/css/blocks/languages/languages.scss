@@ -1,0 +1,42 @@
+.languages{
+  position: relative;
+  z-index: 1;
+  .current{
+    text-transform: capitalize;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    margin: 0;
+  }
+  ul{
+    padding: 0;
+    position: absolute;
+    top: 100%;
+    width: 100%;
+    z-index: -1;
+    height: initial;
+    background-color: var(--gray);
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    visibility: hidden;
+    transform: translateY(-40px);
+    transition: all 1s ease;
+    pointer-events: none;
+    opacity: 0;
+    display: flex;
+    flex-direction: column;
+    max-width: 55px;
+  }
+  .language{
+
+  }
+  &:hover, &:focus-within{
+    ul{
+      pointer-events: initial;
+      visibility: visible;
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "name": "we-members",
+  "version": "1.0.0",
+  "description": "Member system to run file sharing privatly",
+  "main": "public/index.php",
+  "repository": "https://github.com/edgarwe/weMe-members.git",
+  "author": "edgarwe <edgar@we-studio.ch>",
+  "license": "Private",
+  "private": true,
+  "devDependencies": {
+    "@symfony/webpack-encore": "^0.30.2",
+    "webpack-notifier": "^1.6.0"
+  },
+  "scripts": {
+    "dev-server": "encore dev-server --port 8080 --disable-host-check --hot --https",
+    "dev": "encore dev",
+    "watch": "encore dev --watch",
+    "start": "webpack-dev-server --open",
+    "build": "encore production --progress"
+  },
+  "dependencies": {
+    "choices.js": "^9.0.1",
+    "core-js": "^3.6.5",
+    "node-sass": "^4.14.1",
+    "normalize.css": "^8.0.1",
+    "sass-loader": "^8.0.2"
+  }
+}

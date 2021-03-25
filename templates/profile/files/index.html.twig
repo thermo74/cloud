@@ -1,0 +1,77 @@
+{% extends 'profile/index.html.twig' %}
+
+{% block subtitle %}Fichiers{% endblock %}
+
+{% block content %}
+    <h1>{{ 'Available files'|trans }}</h1>
+
+    <div class="count">
+        <p>{{ 'Number of files'|trans }} : {{ pagination.getTotalItemCount }}</p>
+    </div>
+    <form class="searchForm" action="" method="get">
+        <div class="fields">
+            <div class="search">
+                <label for="s" class="sr-only">{{ 'Search'|trans }}</label>
+                <input type="text" placeholder="Search..." name="s" id="s" class="form-control formSearch" value="{% if app.request.query.get('s') is defined %}{{ app.request.query.get('s') }}{% endif %}">
+                <div class="searchIcon">{{ icon('search') }}</div>
+            </div>
+            <div class="categoriesFilter">
+                <label for="categories">{{ 'Categories'|trans }} : </label>
+                <select name="categories[]" id="categories" multiple>
+                    {% for category in categories %}
+                        <option value="{{ category.id }}" {% if app.request.query.get('categories') is defined %}{% if category.id in app.request.query.get('categories') %}selected{% endif %}{% endif %}>{{ category.name }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <button class="btn btn-primary">{{ 'Search'|trans }}</button>
+        </div>
+    </form>
+    <div class="sort">
+        <p class="m-0">{{ 'Sort by'|trans }} :</p>
+        <div{% if pagination.isSorted('name') %} class="sorted"{% endif %}>
+            {{ knp_pagination_sortable(pagination, 'Name'|trans, 'name') }}
+        </div>&nbsp;|
+        <div{% if pagination.isSorted('upload_date') %} class="sorted"{% endif %}>
+            {{ knp_pagination_sortable(pagination, 'Upload date'|trans, 'upload_date') }}
+        </div>&nbsp;|
+        <div{% if pagination.isSorted('size') %} class="sorted"{% endif %}>
+            {{ knp_pagination_sortable(pagination, 'Size'|trans, 'size') }}
+        </div>
+    </div>
+    <div class="boxesRow">
+        {% for file in pagination %}
+            <div class="boxe">
+                <h2 class="title">{{ file.name }}</h2>
+                <div class="boxe-content">
+                    <div class="boxe-image">
+                        {% if 'application/pdf' in file.mime %}
+                            {{ icon('pdf', 'card-img-top') }}
+                        {% elseif 'application/zip' in file.mime %}
+                            {{ icon('zip', 'card-img-top') }}
+                        {% elseif 'image' in file.mime %}
+                            <img src="{{ path('profile_files_view', { id : file.id, size: '150x150' }) }}" class="icon" alt="">
+                        {% else %}
+                            {{ icon('doc-dispo', 'card-img-top') }}
+                        {% endif %}
+                    </div>
+                    <div class="boxe-infos">
+                        <p class="categories">{{ file.categories | join(', ') }}</p>
+                        <p class="size">{{ file.size | readableFilesize }}</p>
+                        <p class="date">{{ file.uploadDate|date('Y-m-d') }}</p>
+                    </div>
+                </div>
+                <div class="actions">
+                    <div class="action">
+                        <p><a href="{{ path('profile_files_download', { id : file.id }) }}">{{ icon('download') }}</a></p>
+                    </div>
+                    <div class="action">
+                        <p><a href="{{ path('profile_files_view', { id : file.id }) }}" target="_blank">{{ icon('see') }}</a></p>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+    <div class="navigation mt-5">
+        {{ knp_pagination_render(pagination) }}
+    </div>
+{% endblock %}

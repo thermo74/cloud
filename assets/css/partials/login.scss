@@ -1,0 +1,29 @@
+.login{
+   header{
+     height: unset;
+     background-color: var(--light);
+   }
+  .wecontainer{
+    place-content: center;
+    display: grid;
+    margin-top: 14vh;
+  }
+  form{
+    width: 330px;
+    max-width: 100%;
+    .formContainer{
+      background-color: var(--light);
+    }
+  }
+  .background{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    overflow: hidden;
+    text-align: center;
+    filter: blur(4px) brightness(.95);
+  }
+}

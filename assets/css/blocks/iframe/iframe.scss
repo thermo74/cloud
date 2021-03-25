@@ -1,0 +1,21 @@
+.video{
+  max-width: 1080px;
+  width: 100%;
+  margin: 0 auto;
+}
+.iframeContainer{
+  position:relative;
+  overflow:hidden;
+  width:100%;
+  padding-top:56.25%;
+}
+.respIframe{
+  position:absolute;
+  top:0;
+  left:0;
+  bottom:0;
+  right:0;
+  width:100%;
+  height:100%;
+  border: none;
+}

@@ -1,0 +1,14 @@
+{{ form_start(form) }}
+    <div class="formField">
+        {{ form_label(form.name) }}
+        {{ form_errors(form.name) }}
+        {{ form_widget(form.name, {'attr' : {'class':'form-control'}}) }}
+    </div>
+    <div class="formCheckbox">
+        {{ form_label(form.is_active) }}
+        {{ form_errors(form.is_active) }}
+        {{ form_widget(form.is_active, {'attr' : {'class':'form-control'}}) }}
+    </div>
+    {{ form_widget(form) }}
+    <button class="btn btn-primary">{{ button_label|default('Save')|trans }}</button>
+{{ form_end(form) }}

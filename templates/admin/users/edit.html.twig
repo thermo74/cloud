@@ -1,0 +1,10 @@
+{% extends 'dashboard.html.twig' %}
+
+{% block subtitle %}Edit Users{% endblock %}
+
+{% block content %}
+    <h1>{{ 'Edit'|trans }}</h1>
+
+    {{ include('admin/users/_form.html.twig', {'button_label': 'Save'}) }}
+
+{% endblock %}

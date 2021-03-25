@@ -1,0 +1,18 @@
+.admin{
+  .dashboard{
+    display: grid;
+    grid-template-columns: minmax(150px, 20%) 1fr;
+    .container{
+      margin-top: 4.3rem;
+      .content{
+        padding: 1rem 5rem;
+        @media screen and (max-width: 520px) {
+          padding: 1rem 8vw;
+        }
+      }
+    }
+    @media (max-width: 992px){
+      grid-template-columns: unset;
+    }
+  }
+}

@@ -1,0 +1,99 @@
+.boxesRow{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  grid-gap: 2rem;
+  margin-top: 2rem;
+  .boxe{
+    background-color: $secondary;
+    padding: 1rem;
+    position: relative;
+    .title{
+      margin: 0 0 0 .5rem;
+    }
+    .boxe-content{
+      display: flex;
+      .boxe-image{
+        width: 33%;
+        margin-top: 1rem;
+        padding-right: 1rem;
+        .icon{
+          width: 150px;
+          max-width: 100%;
+          height: auto;
+          cursor: unset;
+        }
+      }
+      .boxe-infos{
+        width: 66%;
+      }
+    }
+    .actions{
+      margin-top: 1rem;
+      a{
+        display: flex;
+        align-items: center;
+      }
+    }
+    .pastille{
+      position: absolute;
+      top: 0;
+      right: 0;
+      transform: translate(40%, -40%);
+      background-color: $alert-danger;
+      color: $light;
+      text-align: center;
+      border-radius: 390px;
+      width: 50px;
+      height: 50px;
+      z-index: 1;
+    }
+  }
+  .video{
+    padding: 0;
+    .title{
+      margin: 0;
+      font-size: 1.5rem;
+    }
+    .boxe-image{
+      overflow: hidden;
+      position: relative;
+      .playBtn{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: grid;
+        place-content: center;
+
+        svg{
+          width: 50px;
+          height: auto;
+          color: var(--light);
+          transition: transform .5s ease;
+
+        }
+        &:hover{
+          svg{
+            transform: rotate(360deg);
+          }
+        }
+      }
+    }
+    .boxe-infos{
+      padding: 1rem;
+    }
+    .boxe-data{
+      margin-top: 2rem;
+      p{
+        font-size: .9rem;
+      }
+    }
+    .actions{
+      padding-bottom: 1rem;
+    }
+  }
+  @media screen and (max-width:600px){
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,21 @@
+.form-control{
+ border: none;
+ border-bottom: 1px solid $color;
+ border-radius: unset;
+ padding-left: 0;
+ margin-bottom: 35px;
+ margin-top: 5px;
+ max-width: 300px;
+ display: block;
+ width: 100%;
+ background-color: var(--background-color);
+}
+label{
+ margin-bottom: 0;
+}
+.form-file{
+ border: none;
+ border-radius: unset;
+ padding-left: 0;
+ margin: 15px 0 35px;
+}

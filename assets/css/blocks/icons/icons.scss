@@ -1,0 +1,12 @@
+.icon{
+  width: 24px;
+  height: 24px;
+  transition: color .4s ease;
+  cursor: pointer;
+
+  &-bin:hover, &-delete:hover{
+    color: $danger;
+  }
+
+}
+@import "actions/actions";

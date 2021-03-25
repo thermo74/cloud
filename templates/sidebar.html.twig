@@ -1,0 +1,39 @@
+<aside class="sidebar">
+    <div class="logo">
+        <a href="{{ path('homepage') }}" title="Home">
+            <img class="img-fluid" src="{{ asset('images/logo/logo.svg') }}" alt="weSub logo">
+        </a>
+    </div>
+    {% if app.user %}
+    <ul>
+        {% if is_granted('ROLE_MODERATOR') %}
+            <li><h4>Admin :</h4></li>
+            <li {% if app.request.get('_route') == 'roles_index' %} class="active"{% endif %}><a href="{{ path('roles_index') }}" title="{{ 'Roles'|trans }}">{{ icon('user') }}{{ 'Roles'|trans }}</a></li>
+            <li {% if app.request.get('_route') == 'categories_index' %} class="active"{% endif %}><a href="{{ path('categories_index') }}" title="{{'Categories'|trans }}">{{ icon('categories') }}{{'Categories'|trans }}</a></li>
+            <li {% if app.request.get('_route') == 'users_index' %} class="active"{% endif %}><a href="{{ path('users_index') }}" title="{{ 'Users'|trans }}">{{ icon('user') }}{{ 'Users'|trans }}</a></li>
+            <li {% if app.request.get('_route') == 'files_index' %} class="active"{% endif %}><a href="{{ path('files_index') }}" title="{{ 'Files'|trans }}">{{ icon('doc-dispo') }}{{ 'Files'|trans }}</a></li>
+            {% if is_granted('ROLE_ADMIN') %}
+                <li><a href="{{ path('easyadmin') }}" title="Admin">{{ icon('settings') }} EasyAdmin</a></li>
+            {% endif %}
+            <li><h4>Utilisateur :</h4></li>
+        {% endif %}
+        <li {% if app.request.get('_route') == 'profile_account' %} class="active"{% endif %}><a href="{{ path('profile_account') }}" title="{{ 'Account'|trans }}">{{ icon('settings') }} {{ 'Account'|trans }}</a></li>
+        <li {% if app.request.get('_route') == 'profile_files' %} class="active"{% endif %}><a href="{{ path('profile_files') }}" title="{{ 'Files'|trans }}">{{ icon('doc-dispo') }} {{ 'Files'|trans }}</a></li>
+        <li>
+            <div class="languages">
+                <p>{{ icon('flag') }} <a href="{{ path('homepage', { _locale: 'en' }) }}">En</a> <span class="spacer">|</span> <a href="{{ path('homepage', { _locale: 'fr' }) }}">Fr</a></p>
+            </div>
+            <p><a href="{{ path('app_logout') }}" title="{{ 'Logout'|trans }}">{{ icon('power') }} {{ 'Logout'|trans }}</a></p>
+        </li>
+    </ul>
+    {% else %}
+        <ul>
+            <li><a href="http://www.studio19.ch/pilates_bodyart/">Planning</a></li>
+            <li><a href="http://www.studio19.ch/presentation-2/">Présentation</a></li>
+            <li><a href="http://www.studio19.ch/le-studio-19/">Le Studio 19</a></li>
+            <li><a href="http://www.studio19.ch/news/">News</a></li>
+            <li><a href="http://www.studio19.ch/galerie/">Galerie</a></li>
+            <li class="mt-0"><a href="http://www.studio19.ch/contact/">Contact</a></li>
+        </ul>
+    {% endif %}
+</aside>

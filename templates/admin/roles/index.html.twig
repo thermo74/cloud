@@ -1,0 +1,26 @@
+{% extends 'dashboard.html.twig' %}
+
+{% block subtitle %}{{ 'Roles'|trans }}{% endblock %}
+
+{% block content %}
+    <h1>{{ 'Roles'|trans }}</h1>
+    <p><a class="btn btn-primary" href="{{ path('roles_new') }}">{{ 'Create a role'|trans }}</a></p>
+
+    <div class="boxesRow">
+        {% for key, role in roles %}
+            <div class="boxe">
+                <p>{{ 'Name'|trans }} : {{ role.name }}</p>
+                <p>{{ 'Categories'|trans }} : {{ role.categories | join(', ') }}</p>
+                <p>{{ 'Active'|trans }} : {{ role.isActive ? 'Oui' : 'Non' }}</p>
+                <div class="actions">
+                    <div class="action">
+                        <p><a href="{{ path('roles_edit', {'id': role.id}) }}">{{ icon('edit') }}</a></p>
+                    </div>
+                    <div class="action">
+                        <p>{{ include('admin/roles/_delete_form.html.twig') }}</p>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

@@ -1,0 +1,32 @@
+.searchForm{
+  .fields{
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    grid-gap: 2rem;
+    align-items: center;
+    label{
+      display: block;
+      margin-bottom: 1rem;
+    }
+    #s{
+      padding: 7.5px;
+      min-height: 44px;
+      margin: auto 0;
+    }
+  }
+  .search{
+    position: relative;
+    max-width: 300px;
+    label, .searchIcon{
+      position: absolute;
+    }
+    label{
+      top: 16px;
+      left: 30px;
+    }
+    .searchIcon{
+      top: 13px;
+      right: 20px;
+    }
+  }
+}

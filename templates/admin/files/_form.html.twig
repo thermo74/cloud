@@ -1,0 +1,21 @@
+{{ form_start(form) }}
+    {{ form_errors(form) }}
+    <div class="formField">
+        {{ form_label(form.name) }}
+        {{ form_errors(form.name) }}
+        {{ form_widget(form.name, {'attr' : {'class':'form-control'}}) }}
+    </div>
+    <div class="formField">
+        {{ form_label(form.file) }}
+        {{ form_errors(form.file) }}
+        {{ form_widget(form.file, {'attr' : {'class':'form-file'}}) }}
+    </div>
+    <div class="formField">
+        {{ form_label(form.categories) }}
+        {{ form_errors(form.categories) }}
+        {{ form_widget(form.categories, {'attr' : {'class':'form-control'}}) }}
+    </div>
+    {{ form_widget(form) }}
+    <button class="btn">{{ button_label|default('Save')|trans }}</button>
+
+{{ form_end(form) }}

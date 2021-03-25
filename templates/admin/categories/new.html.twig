@@ -1,0 +1,10 @@
+{% extends 'dashboard.html.twig' %}
+
+{% block subtitle %}{{ 'Create a category'|trans }}{% endblock %}
+
+{% block content %}
+    <h1>{{ 'Create a category'|trans }}</h1>
+
+    {{ include('admin/categories/_form.html.twig') }}
+
+{% endblock %}

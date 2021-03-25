@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block subtitle %}Mot de passe oublié{% endblock %}
+
+{% block body %}
+    <div class="wecontainer">
+        <h1 class="my-4">Mot de passe oublié</h1>
+        <div class="formContainer">
+            <div class="text-center mb-5 mt-2 pb-4">
+                <img src="{{ asset('images/logo/logo.svg') }}" alt="">
+            </div>
+            {{ form_start(resetForm) }}
+            <div class="formPlainPassword">
+                {{ form_errors(resetForm.plainPassword) }}
+                {{ form_widget(resetForm.plainPassword, {'attr' : {'required':'required'}}) }}
+            </div>
+            <button class="btn">Reset password</button>
+            {{ form_end(resetForm) }}
+        </div>
+    </div>
+{% endblock %}

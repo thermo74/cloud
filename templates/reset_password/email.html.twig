@@ -1,0 +1,12 @@
+<img src="{{ email.image('@logo/logo.svg') }}" width="150" height="auto" alt="Logo">
+
+<h1>Bonjour,</h1>
+
+<p>Pour réinitialiser votre mot de passe, veuillez visiter
+    <a href="{{ url('app_reset_password', {token: resetToken.token}) }}">ce lien.</a>
+</p>
+<p>
+    Ce lien expire dans {{ tokenLifetime|date('g') }} heure(s).
+</p>
+
+<p>Bonne continuation.</p>

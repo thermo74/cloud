@@ -1,0 +1,10 @@
+{% extends 'dashboard.html.twig' %}
+
+{% block subtitle %}{{ 'Create a role'|trans }}{% endblock %}
+
+{% block content %}
+    <h1>{{ 'Create a role'|trans }}</h1>
+
+    {{ include('admin/roles/_form.html.twig') }}
+
+{% endblock %}

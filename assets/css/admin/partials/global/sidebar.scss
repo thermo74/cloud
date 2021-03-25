@@ -1,0 +1,31 @@
+.admin {
+  .sidebar {
+    display: block;
+    position: sticky;
+    height: 100vh;
+    width: 100%;
+    max-width: 250px;
+    overflow-y: scroll;
+    .logo {
+      filter: invert(1);
+    }
+
+    @media screen and (max-width: 992px) {
+      position: fixed;
+      left: -250px;
+      height: 100%;
+      transition: left .6s ease;
+      padding: 60px 10px 5px;
+      ul {
+        position: relative;
+        padding: 0;
+        width: unset;
+        overflow-y: scroll;
+      }
+      &.active {
+        left: 0;
+      }
+    }
+  }
+
+}

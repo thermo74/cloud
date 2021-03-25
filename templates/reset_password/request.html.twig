@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block subtitle %}Mot de passe oublié{% endblock %}
+
+{% block body %}
+    {% for flashError in app.flashes('reset_password_error') %}
+        <div class="alert alert-danger" role="alert">{{ flashError }}</div>
+    {% endfor %}
+    <div class="wecontainer">
+        <h1 class="my-4">Mot de passe oublié</h1>
+        <div class="formContainer">
+            <div class="text-center mb-5 mt-2 pb-4">
+                <img src="{{ asset('images/logo/logo.svg') }}" alt="">
+            </div>
+            {{ form_start(requestForm) }}
+            <div class="formEmail mb-5">
+                {{ form_label(requestForm.email) }}
+                {{ form_errors(requestForm.email) }}
+                {{ form_widget(requestForm.email, {'attr': {'class':'form-control'}}) }}
+                <p><small>Renvoyer le mot de passe à cette adresse e-mail</small></p>
+            </div>
+            <button class="btn mb-3">Envoyer</button>
+            <p><a class="btn btn-outline-primary" href="{{ path('app_login') }}">Se connecter</a></p>
+            {{ form_end(requestForm) }}
+        </div>
+    </div>
+
+{% endblock %}
